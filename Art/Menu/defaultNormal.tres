@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bjyyct5w84a1u"]
+
+[ext_resource type="Texture2D" uid="uid://dl2siere27ggm" path="res://Art/Menu/menuBackground.png" id="1_jbsnv"]
+
+[resource]
+texture = ExtResource("1_jbsnv")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 48, 32, 32)

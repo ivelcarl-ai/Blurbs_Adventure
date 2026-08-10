@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu8mh064ylibq"]
+
+[ext_resource type="Script" uid="uid://d15dxtobkr04u" path="res://Scripts/goal.gd" id="1_78lnv"]
+[ext_resource type="SpriteFrames" uid="uid://inqqmhs6nchd" path="res://Art/Sprites/flagAnimation.tres" id="2_78lnv"]
+[ext_resource type="AudioStream" uid="uid://cuvp3umwkchey" path="res://Audio/SoundEffects/levelComplete.mp3" id="3_qdavs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vn6n"]
+size = Vector2(19, 26)
+
+[node name="Goal" type="Area2D" node_paths=PackedStringArray("levelClear")]
+script = ExtResource("1_78lnv")
+levelClear = NodePath("AudioStreamPlayer2D")
+metadata/Role = "Goal"
+
+[node name="End_Point" type="Camera2D" parent="."]
+position = Vector2(-57, -13)
+zoom = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 3)
+shape = SubResource("RectangleShape2D_8vn6n")
+
+[node name="Flag" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_78lnv")
+animation = &"open"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qdavs")
+bus = &"Level"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

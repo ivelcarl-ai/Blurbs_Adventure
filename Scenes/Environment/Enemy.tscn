@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgurnq3n61sck"]
+
+[ext_resource type="Script" uid="uid://cjcxwrw6ch6qa" path="res://Scenes/Levels/enemy.gd" id="1_76cnw"]
+[ext_resource type="Texture2D" uid="uid://degtd24ymgu53" path="res://Art/Sprites/Enemy/Enemy2Left.png" id="1_cbc7a"]
+[ext_resource type="Script" uid="uid://gg2joadcivpg" path="res://Scenes/Levels/enemyMovement.gd" id="2_4v1ry"]
+[ext_resource type="AudioStream" uid="uid://dj54gxko2evjf" path="res://Audio/SoundEffects/enemyDeath.mp3" id="4_bdjmw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_76cnw"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v1ry"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkt31"]
+size = Vector2(16, 16)
+
+[sub_resource type="Gradient" id="Gradient_bt4sq"]
+offsets = PackedFloat32Array(0.0140449, 1)
+colors = PackedColorArray(0.14902, 0.729412, 0.443137, 1, 0.756863, 0.901961, 0.427451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_76cnw"]
+gradient = SubResource("Gradient_bt4sq")
+width = 2
+height = 2
+fill = 1
+fill_from = Vector2(0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_76cnw"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 22.73
+initial_velocity_max = 191.48
+gravity = Vector3(0, 98, 0)
+
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("deathParticles", "rb", "playerKiller", "death")]
+script = ExtResource("1_76cnw")
+deathParticles = NodePath("RigidBody2D/Death")
+rb = NodePath("RigidBody2D")
+playerKiller = NodePath("RigidBody2D/ShotDetection")
+death = NodePath("RigidBody2D/DeathSound")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("sprite")]
+position = Vector2(0, 1)
+collision_layer = 8
+collision_mask = 12
+physics_material_override = SubResource("PhysicsMaterial_76cnw")
+gravity_scale = 0.0
+lock_rotation = true
+linear_velocity = Vector2(-48, 0)
+linear_damp_mode = 1
+script = ExtResource("2_4v1ry")
+sprite = NodePath("ShotDetection/Sprite2D")
+metadata/Role = "Enemy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_4v1ry")
+
+[node name="ShotDetection" type="Area2D" parent="RigidBody2D"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/ShotDetection"]
+shape = SubResource("RectangleShape2D_xkt31")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/ShotDetection"]
+texture = ExtResource("1_cbc7a")
+
+[node name="Death" type="GPUParticles2D" parent="RigidBody2D"]
+scale = Vector2(0.6, 0.6)
+emitting = false
+amount = 1000
+texture = SubResource("GradientTexture2D_76cnw")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_76cnw")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="RigidBody2D"]
+stream = ExtResource("4_bdjmw")
+
+[connection signal="body_entered" from="RigidBody2D/ShotDetection" to="." method="_on_shot_detection_body_entered"]

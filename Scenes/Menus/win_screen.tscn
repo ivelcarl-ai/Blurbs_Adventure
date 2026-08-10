@@ -1,0 +1,365 @@
+[gd_scene load_steps=14 format=3 uid="uid://cbrud3uag6oji"]
+
+[ext_resource type="Script" uid="uid://db6860u1exrjc" path="res://Scripts/main_settings.gd" id="1_2ji6j"]
+[ext_resource type="Texture2D" uid="uid://dl2siere27ggm" path="res://Art/Menu/menuBackground.png" id="2_webmg"]
+[ext_resource type="StyleBox" uid="uid://ch4yjpc4ikcsx" path="res://Art/Menu/restartPressed.tres" id="3_j8ipx"]
+[ext_resource type="StyleBox" uid="uid://fqaielbtlcbh" path="res://Art/Menu/nextPressed.tres" id="4_webmg"]
+[ext_resource type="StyleBox" uid="uid://6ramw1u1q2pk" path="res://Art/Menu/homePressed.tres" id="5_2ji6j"]
+[ext_resource type="StyleBox" uid="uid://dcwi7c2735ikc" path="res://Art/Menu/nextNormal.tres" id="5_j8ipx"]
+[ext_resource type="StyleBox" uid="uid://cbdkcbmapjmf5" path="res://Art/Menu/homeNormal.tres" id="5_os407"]
+
+[sub_resource type="Theme" id="Theme_vsnur"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vsnur"]
+texture = ExtResource("2_webmg")
+region_rect = Rect2(96, 96, 32, 32)
+
+[sub_resource type="Animation" id="Animation_webmg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinMenu/NinePatchRect:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/BoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/BoxContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j8ipx"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinMenu/NinePatchRect:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 200), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/BoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/BoxContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2ji6j"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinMenu/NinePatchRect:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(400, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/BoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/BoxContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.366667, 0.499395),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.366667, 0.499395),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.00070191),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pwei"]
+_data = {
+&"RESET": SubResource("Animation_webmg"),
+&"close": SubResource("Animation_j8ipx"),
+&"open": SubResource("Animation_2ji6j")
+}
+
+[node name="winScreen" type="Control" node_paths=PackedStringArray("playButton", "restartButton", "animator", "homeButton")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 200.0
+script = ExtResource("1_2ji6j")
+playButton = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/NextLevel")
+restartButton = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Restart")
+animator = NodePath("AnimationPlayer")
+homeButton = NodePath("WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Home")
+
+[node name="WinMenu" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="WinMenu"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_webmg")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="WinMenu/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinMenu/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="BoxContainer" type="BoxContainer" parent="WinMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="WinMenu/NinePatchRect/MarginContainer/VBoxContainer/BoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_vsnur")
+theme_override_colors/font_color = Color(0.560784, 0.827451, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.282353, 0.290196, 0.466667, 1)
+theme_override_colors/font_outline_color = Color(0.196078, 0.2, 0.32549, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+text = "Level Complete"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WinMenu/NinePatchRect/MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 60
+
+[node name="Restart" type="Button" parent="WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = ExtResource("3_j8ipx")
+theme_override_styles/pressed = ExtResource("3_j8ipx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_vsnur")
+
+[node name="NextLevel" type="Button" parent="WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = ExtResource("4_webmg")
+theme_override_styles/pressed = ExtResource("4_webmg")
+theme_override_styles/normal = ExtResource("5_j8ipx")
+
+[node name="Home" type="Button" parent="WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = ExtResource("5_2ji6j")
+theme_override_styles/pressed = ExtResource("5_2ji6j")
+theme_override_styles/normal = ExtResource("5_os407")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7pwei")
+}
+
+[connection signal="pressed" from="WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="WinMenu/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Home" to="." method="_on_home_pressed"]

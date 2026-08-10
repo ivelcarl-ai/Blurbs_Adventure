@@ -1,0 +1,168 @@
+[gd_scene load_steps=24 format=3 uid="uid://y08yqsjppvem"]
+
+[ext_resource type="Script" uid="uid://d3fdw8a5elyqv" path="res://Scripts/player_movement.gd" id="1_wpxxa"]
+[ext_resource type="Texture2D" uid="uid://bqt7b682knon1" path="res://Art/Sprites/Boblina/Boblina1Right.png" id="2_kbgc3"]
+[ext_resource type="Texture2D" uid="uid://dc2d2qs8pa47p" path="res://Art/Sprites/Boblina/Boblina2Right.png" id="3_72ulj"]
+[ext_resource type="Texture2D" uid="uid://dtkujhqwp6v1l" path="res://Art/Sprites/Boblina/Boblina3Right.png" id="4_22f22"]
+[ext_resource type="Texture2D" uid="uid://c6dwbmm1ggtc5" path="res://Art/Sprites/Boblina/Boblina4Right.png" id="5_kgavm"]
+[ext_resource type="Texture2D" uid="uid://dkhkmnqcgtomq" path="res://Art/Sprites/Boblina/Boblina5Right.png" id="6_7mrpt"]
+[ext_resource type="Texture2D" uid="uid://m2atveaxibd2" path="res://Art/Sprites/Boblina/Boblina1Left.png" id="7_2ywlx"]
+[ext_resource type="Texture2D" uid="uid://clqk3a8efxjly" path="res://Art/Sprites/Boblina/Boblina2Left.png" id="8_nr7ym"]
+[ext_resource type="Texture2D" uid="uid://bn1jyap7yaryr" path="res://Art/Sprites/Boblina/Boblina3Left.png" id="9_p2l0b"]
+[ext_resource type="Texture2D" uid="uid://c2lyqkq35krcy" path="res://Art/Sprites/Boblina/boblina4Left.png" id="10_pevry"]
+[ext_resource type="Texture2D" uid="uid://dbturp64msmc8" path="res://Art/Sprites/Boblina/Boblina5Left.png" id="11_7fes8"]
+[ext_resource type="Texture2D" uid="uid://bbrbgepb7is8u" path="res://Art/Sprites/Boblina/BoblinaParticles.tres" id="12_wpxxa"]
+[ext_resource type="Material" uid="uid://drmy2mn053tlu" path="res://Art/Particles/explosion.tres" id="13_3niyr"]
+[ext_resource type="AudioStream" uid="uid://ypv15adn5gct" path="res://Audio/SoundEffects/coinPickup.mp3" id="14_qhr4y"]
+[ext_resource type="AudioStream" uid="uid://cgwr2f1fqn64h" path="res://Audio/SoundEffects/keyPickup.mp3" id="15_1pvsr"]
+[ext_resource type="AudioStream" uid="uid://47km8ahk03yb" path="res://Audio/SoundEffects/gateUnlocked.mp3" id="16_1pvsr"]
+[ext_resource type="AudioStream" uid="uid://bv6104wsk0qms" path="res://Audio/Music/PlainsLoop.wav" id="16_4vmnr"]
+[ext_resource type="AudioStream" uid="uid://c86y0ka6ahnpc" path="res://Audio/SoundEffects/playerDeath.mp3" id="18_4vmnr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2qhs"]
+size = Vector2(16, 16)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e8wad"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, -0.05, 0)
+spread = 23.855
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="Gradient" id="Gradient_cvnsp"]
+colors = PackedColorArray(0.662745, 0, 0.0235294, 1, 0.917647, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wpxxa"]
+gradient = SubResource("Gradient_cvnsp")
+width = 2
+height = 2
+fill = 1
+fill_from = Vector2(0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kbgc3"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 34.42
+initial_velocity_max = 321.86
+gravity = Vector3(0, 98, 0)
+
+[node name="Boblina" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("coinSound", "keyCollect", "gateUnlock", "playerDeath")]
+collision_mask = 5
+script = ExtResource("1_wpxxa")
+speed = 200
+coinSound = NodePath("SoundEffects/CoinCollect")
+keyCollect = NodePath("SoundEffects/KeyCollect")
+gateUnlock = NodePath("SoundEffects/GateUnlock")
+playerDeath = NodePath("Camera2D/PlayerDeath")
+size_5_right = ExtResource("2_kbgc3")
+size_4_right = ExtResource("3_72ulj")
+size_3_right = ExtResource("4_22f22")
+size_2_right = ExtResource("5_kgavm")
+size_1_right = ExtResource("6_7mrpt")
+size_5_left = ExtResource("7_2ywlx")
+size_4_left = ExtResource("8_nr7ym")
+size_3_left = ExtResource("9_p2l0b")
+size_2_left = ExtResource("10_pevry")
+size_1_left = ExtResource("11_7fes8")
+metadata/Role = "Player"
+metadata/canMove = true
+
+[node name="JumpParticles1" type="GPUParticles2D" parent="CharacterBody2D"]
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 8)
+emitting = false
+amount = 21
+texture = ExtResource("12_wpxxa")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("13_3niyr")
+
+[node name="JumpParticles2" type="GPUParticles2D" parent="CharacterBody2D"]
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 8)
+emitting = false
+amount = 21
+texture = ExtResource("12_wpxxa")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("13_3niyr")
+
+[node name="JumpParticles3" type="GPUParticles2D" parent="CharacterBody2D"]
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 8)
+emitting = false
+amount = 21
+texture = ExtResource("12_wpxxa")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("13_3niyr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+texture_filter = 1
+shape = SubResource("RectangleShape2D_c2qhs")
+
+[node name="character_sprite" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(0, -2)
+texture = ExtResource("2_kbgc3")
+
+[node name="SidewaysParticles" type="GPUParticles2D" parent="CharacterBody2D"]
+z_index = -3
+position = Vector2(-8, 8)
+emitting = false
+texture = ExtResource("12_wpxxa")
+lifetime = 0.6
+randomness = 0.31
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_e8wad")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D"]
+emitting = false
+amount = 1000
+texture = SubResource("GradientTexture2D_wpxxa")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_kbgc3")
+
+[node name="SoundEffects" type="Node2D" parent="CharacterBody2D"]
+
+[node name="GateUnlock" type="AudioStreamPlayer2D" parent="CharacterBody2D/SoundEffects"]
+stream = ExtResource("16_1pvsr")
+bus = &"Player"
+
+[node name="KeyCollect" type="AudioStreamPlayer2D" parent="CharacterBody2D/SoundEffects"]
+stream = ExtResource("15_1pvsr")
+bus = &"Player"
+
+[node name="CoinCollect" type="AudioStreamPlayer2D" parent="CharacterBody2D/SoundEffects"]
+stream = ExtResource("14_qhr4y")
+bus = &"Player"
+
+[node name="LevelLoop" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("16_4vmnr")
+autoplay = true
+bus = &"Player"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="PlayerDeath" type="AudioStreamPlayer2D" parent="CharacterBody2D/Camera2D"]
+stream = ExtResource("18_4vmnr")
+volume_db = 8.0

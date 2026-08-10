@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bskrb01g6o6ts"]
+
+[ext_resource type="Script" uid="uid://byu1f3eiiivaq" path="res://Scripts/enemy_gate.gd" id="1_qvf21"]
+[ext_resource type="Texture2D" uid="uid://dupq1110pyt6t" path="res://Art/Sprites/enemyGate.png" id="2_v4u7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dmbs"]
+size = Vector2(32, 32)
+
+[node name="EnemyGate" type="Node2D"]
+script = ExtResource("1_qvf21")
+threshold = 4
+metadata/Cost = 10
+metadata/Role = "Goal"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_4dmbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_v4u7a")

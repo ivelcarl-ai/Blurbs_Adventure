@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://ctk7far58fgl4"]
+
+[ext_resource type="PackedScene" uid="uid://bi8rn37vdn22l" path="res://Scenes/Collectables/coin.tscn" id="1_qekg7"]
+[ext_resource type="PackedScene" uid="uid://ofm7b45hm6t6" path="res://Scenes/Collectables/key.tscn" id="2_st36k"]
+[ext_resource type="PackedScene" uid="uid://bv6kte2vbk4ml" path="res://Scenes/Collectables/top_offset_coin.tscn" id="3_2egof"]
+[ext_resource type="PackedScene" uid="uid://bwbb8c6awe2jr" path="res://Scenes/Collectables/right_offset_coin.tscn" id="4_yoq25"]
+[ext_resource type="PackedScene" uid="uid://bvhllyrvdp04g" path="res://Scenes/Collectables/top_right_offset_coin.tscn" id="5_st36k"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_u0la5"]
+scenes/1/scene = ExtResource("1_qekg7")
+scenes/2/scene = ExtResource("2_st36k")
+scenes/3/scene = ExtResource("3_2egof")
+scenes/4/scene = ExtResource("4_yoq25")
+scenes/5/scene = ExtResource("5_st36k")
+
+[resource]
+sources/0 = SubResource("TileSetScenesCollectionSource_u0la5")

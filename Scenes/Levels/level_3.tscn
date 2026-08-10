@@ -1,0 +1,222 @@
+[gd_scene load_steps=13 format=4 uid="uid://cgamu1gncutxk"]
+
+[ext_resource type="Script" uid="uid://kec3dbmfl5uv" path="res://Scripts/level.gd" id="1_l4wr6"]
+[ext_resource type="Script" uid="uid://d15dxtobkr04u" path="res://Scripts/goal.gd" id="2_5rvg2"]
+[ext_resource type="PackedScene" uid="uid://dcrmbn1f8s0tt" path="res://Scenes/Collectables/trick_coin.tscn" id="2_jtv8s"]
+[ext_resource type="TileSet" uid="uid://bf1p16g3i44s4" path="res://Art/Sprites/tileMap.tres" id="2_l4wr6"]
+[ext_resource type="Texture2D" uid="uid://boh07c756srn" path="res://Art/Sprites/flag.png" id="3_jtv8s"]
+[ext_resource type="PackedScene" uid="uid://bykwnhj15cjmy" path="res://Scenes/Menus/mainSettings.tscn" id="6_fxnjf"]
+[ext_resource type="PackedScene" uid="uid://dhicoixumuqlt" path="res://Scenes/Menus/settings_menu.tscn" id="7_xjeco"]
+[ext_resource type="PackedScene" uid="uid://cbrud3uag6oji" path="res://Scenes/Menus/win_screen.tscn" id="8_j77fg"]
+[ext_resource type="PackedScene" uid="uid://dng7n0m5kbcxl" path="res://Scenes/Environment/background.tscn" id="9_ki8bc"]
+[ext_resource type="PackedScene" uid="uid://bi8rn37vdn22l" path="res://Scenes/Collectables/coin.tscn" id="10_c81s1"]
+[ext_resource type="PackedScene" uid="uid://bhm1k4nm4tx2k" path="res://Scenes/UI Display/coins_display.tscn" id="11_jtv8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cggpd"]
+size = Vector2(19, 26)
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_l4wr6")
+metadata/maxSize = 4
+metadata/nextScene = "res://Scenes/level_4.tscn"
+metadata/Player = "Boblina"
+
+[node name="Klara" parent="." instance=ExtResource("2_jtv8s")]
+visible = false
+position = Vector2(1807, -557)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(-49, 24)
+tile_map_data = PackedByteArray("AAABAP//AAABAAIAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAACAP//AAABAAIAAAAAAP//AAADAAAAAAAAAAAAAAAGAAQAAAADAAAAAAABAAAAAAADAP//AAABAAIAAAAEAP//AAABAAIAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAFAP//AAABAAIAAAAGAP//AAAIAAIAAAAGAAAAAAAEAAEAAAANAP//AAAEAAAAAAAMAP//AAADAAAAAAANAAAAAAAIAAQAAAAMAAAAAAAGAAQAAAAQAPv/AAAGAAIAAAARAPv/AAAIAAIAAAARAPz/AAAEAAEAAAAQAPz/AAAGAAQAAAAUAPj/AAAGAAQAAAAUAPf/AAAGAAIAAAAVAPf/AAABAAIAAAAVAPj/AAABAAAAAAAWAPf/AAABAAIAAAAXAPf/AAABAAIAAAAYAPf/AAABAAIAAAAZAPf/AAABAAIAAAAaAPf/AAAIAAIAAAAaAPj/AAAEAAEAAAAZAPj/AAABAAAAAAAYAPj/AAABAAAAAAAXAPj/AAABAAAAAAAWAPj/AAABAAAAAAAdAPv/AAADAAAAAAAdAPz/AAADAAEAAAAeAPz/AAAIAAQAAAAeAPv/AAAIAAIAAAAhAAAAAAAGAAQAAAAhAP//AAAGAAIAAAAiAP//AAAEAAAAAAAiAAAAAAAEAAEAAAAoAP//AAAGAAIAAAAoAAAAAAAGAAQAAAApAAAAAAABAAAAAAAqAAAAAAABAAAAAAAqAP//AAABAAIAAAArAP//AAABAAIAAAArAAAAAAABAAAAAAAsAAAAAAABAAAAAAAsAP//AAABAAIAAAApAP//AAABAAIAAAAtAP//AAAEAAAAAAAtAAAAAAAEAAEAAAAvAPr/AAADAAAAAAAwAPr/AAAEAAAAAAAvAPv/AAADAAEAAAAwAPv/AAAIAAQAAAAvAPL/AAAGAAIAAAAwAPL/AAAIAAIAAAAwAPP/AAAEAAEAAAAvAPP/AAAGAAQAAAAvAOv/AAAGAAIAAAAwAOv/AAAEAAAAAAAwAOz/AAAEAAEAAAAvAOz/AAAGAAQAAAAmAOP/AAAGAAIAAAAmAOT/AAACAAEAAAAmAOX/AAACAAEAAAAnAOX/AAAAAAIAAAAoAOX/AAABAAIAAAApAOX/AAAIAAIAAAApAOb/AAAIAAQAAAAoAOb/AAABAAAAAAAnAOb/AAABAAAAAAAmAOb/AAAGAAQAAAAnAOT/AAAAAAEAAAAnAOP/AAAEAAAAAAAoAN7/AAAGAAQAAAAoAN3/AAACAAEAAAApAN3/AAAAAAEAAAApAN7/AAAEAAEAAAAoANz/AAACAAEAAAAoANv/AAADAAAAAAApANv/AAABAAIAAAAqANv/AAABAAIAAAArANv/AAAEAAAAAAAqANz/AAABAAAAAAApANz/AAAAAAAAAAArANz/AAAIAAQAAABEANv/AAAEAAAAAABDANv/AAABAAIAAABCANv/AAABAAIAAABBANv/AAABAAIAAABAANv/AAABAAIAAABAANz/AAABAAAAAABBANz/AAABAAAAAABCANz/AAABAAAAAABDANz/AAABAAAAAABEANz/AAAIAAQAAAA+ANv/AAAGAAIAAAA/ANv/AAABAAIAAAA/ANz/AAABAAAAAAA+ANz/AAADAAEAAABUANv/AAABAAIAAABVANv/AAABAAIAAABWANv/AAABAAIAAABXANv/AAABAAIAAABYANv/AAABAAIAAABZANv/AAABAAIAAABaANv/AAAIAAIAAABaANz/AAAEAAEAAABZANz/AAABAAAAAABYANz/AAABAAAAAABXANz/AAABAAAAAABWANz/AAABAAAAAABVANz/AAABAAAAAABUANz/AAABAAAAAABTANz/AAADAAEAAABTANv/AAADAAAAAABoAOf/AAADAAEAAABpAOf/AAABAAAAAABqAOf/AAABAAAAAABrAOf/AAABAAAAAABsAOf/AAABAAAAAABtAOf/AAABAAAAAABuAOf/AAABAAAAAABvAOf/AAABAAAAAABwAOf/AAABAAAAAABwAOb/AAAFAAAAAABvAOb/AAAFAAAAAABuAOb/AAAFAAAAAABtAOb/AAAFAAAAAABtAOX/AAABAAIAAABsAOX/AAABAAIAAABrAOX/AAABAAIAAABrAOb/AAAFAAAAAABqAOb/AAAFAAAAAABpAOb/AAAFAAAAAABoAOb/AAACAAEAAABsAOb/AAAFAAAAAABqAOX/AAABAAIAAABpAOX/AAABAAIAAABoAOX/AAADAAAAAABuAOX/AAABAAIAAABvAOX/AAABAAIAAABwAOX/AAACAAIAAABwAOT/AAACAAEAAABwAOP/AAACAAEAAABwAOL/AAACAAEAAABwAOH/AAACAAEAAABwAOD/AAACAAEAAABwAN//AAACAAEAAABwAN7/AAACAAEAAABvAN3/AAABAAAAAABuAN3/AAABAAAAAABtAN3/AAABAAAAAABsAN3/AAABAAAAAABrAN3/AAABAAAAAABqAN3/AAABAAAAAABpAN3/AAAAAAAAAABoAN3/AAACAAEAAABpAN7/AAAAAAEAAABoAN7/AAACAAEAAABoAN//AAACAAEAAABoAOD/AAACAAEAAABpAN//AAAAAAEAAABpAOD/AAAAAAEAAABtAOH/AAAEAAAAAABsAOH/AAABAAIAAABrAOH/AAABAAIAAABqAOH/AAABAAIAAABpAOH/AAAAAAIAAABoAOH/AAACAAEAAABwAN3/AAACAAAAAABoANz/AAACAAEAAABpANz/AAAFAAAAAABqANz/AAAFAAAAAABrANz/AAAFAAAAAABsANz/AAAFAAAAAABtANz/AAAFAAAAAABuANz/AAAFAAAAAABvANz/AAAFAAAAAABwANz/AAAFAAAAAABxANz/AAAFAAAAAABxAN3/AAAFAAAAAABxAN7/AAAFAAAAAABxAN//AAAFAAAAAABxAOD/AAAFAAAAAABxAOH/AAAFAAAAAABxAOL/AAAFAAAAAABxAOP/AAAFAAAAAABxAOT/AAAFAAAAAABxAOX/AAAFAAAAAABxAOb/AAAFAAAAAABxAOf/AAABAAAAAAByAOf/AAAIAAQAAAByAOb/AAAAAAEAAAByAOX/AAAAAAEAAAByAOT/AAAAAAEAAAByAOP/AAAAAAEAAAByAOL/AAAAAAEAAAByAOH/AAAAAAEAAABxANv/AAABAAIAAAByANv/AAAIAAIAAAByANz/AAAAAAEAAAByAN3/AAAAAAEAAAByAN7/AAAAAAEAAAByAN//AAAAAAEAAAByAOD/AAAAAAEAAABuANv/AAABAAIAAABtANv/AAABAAIAAABqANv/AAABAAIAAABpANv/AAABAAIAAABoANv/AAADAAAAAABrANv/AAABAAIAAABsANv/AAABAAIAAABvANv/AAABAAIAAABwANv/AAABAAIAAABoAOL/AAADAAEAAABpAOL/AAABAAAAAABqAOL/AAABAAAAAABrAOL/AAABAAAAAABsAOL/AAABAAAAAABtAOL/AAAIAAQAAAA=")
+tile_set = ExtResource("2_l4wr6")
+metadata/terrain_type = ""
+
+[node name="Map" type="Camera2D" parent="."]
+position = Vector2(909, -372)
+enabled = false
+zoom = Vector2(0.54, 0.54)
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(1675, -488)
+script = ExtResource("2_5rvg2")
+
+[node name="Flag" type="Sprite2D" parent="Goal"]
+z_index = -1
+texture_filter = 1
+texture = ExtResource("3_jtv8s")
+
+[node name="End_Point" type="Camera2D" parent="Goal"]
+position = Vector2(-432, 131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2(2.5, 3)
+shape = SubResource("RectangleShape2D_cggpd")
+
+[node name="Menus" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="Menus" instance=ExtResource("6_fxnjf")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="SettingsMenu" parent="Menus" instance=ExtResource("7_xjeco")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="WinScreen" parent="Menus" instance=ExtResource("8_j77fg")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("9_ki8bc")]
+
+[node name="Coin" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(52, -3)
+
+[node name="Coin2" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(157, -7)
+
+[node name="Coin3" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(102, -66)
+
+[node name="Coin4" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(221, -72)
+
+[node name="Coin5" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(245, -107)
+
+[node name="Coin6" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(280, -132)
+
+[node name="Coin7" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(369, -132)
+
+[node name="Coin8" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(430, -71)
+
+[node name="Coin9" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(495, -7)
+
+[node name="Coin10" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(546, -65)
+
+[node name="Coin11" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(601, -4)
+
+[node name="Coin12" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(669, -5)
+
+[node name="Coin13" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(719, -85)
+
+[node name="Coin14" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(684, -51)
+
+[node name="Coin15" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(757, -85)
+
+[node name="Coin16" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(757, -146)
+
+[node name="Coin17" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(719, -214)
+
+[node name="Coin18" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(680, -215)
+
+[node name="Coin19" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(680, -285)
+
+[node name="Coin20" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(717, -323)
+
+[node name="Coin21" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(670, -383)
+
+[node name="Coin22" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(607, -420)
+
+[node name="Coin23" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(574, -455)
+
+[node name="Coin24" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(574, -528)
+
+[node name="Coin25" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(602, -578)
+
+[node name="Coin26" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(648, -579)
+
+[node name="Coin27" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(953, -580)
+
+[node name="Coin28" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(701, -601)
+
+[node name="Coin29" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(792, -603)
+
+[node name="Coin30" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(889, -604)
+
+[node name="Coin31" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(1030, -581)
+
+[node name="Coin32" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(1335, -582)
+
+[node name="Coin33" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(1083, -603)
+
+[node name="Coin34" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(1174, -605)
+
+[node name="Coin35" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(1271, -606)
+
+[node name="Coin36" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(1397, -581)
+
+[node name="Coin37" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(1630, -421)
+
+[node name="Coin38" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(1479, -537)
+
+[node name="Coin39" parent="." instance=ExtResource("10_c81s1")]
+position = Vector2(1549, -465)
+
+[node name="CoinsDisplay" parent="." instance=ExtResource("11_jtv8s")]
+
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]

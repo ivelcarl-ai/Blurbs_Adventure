@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctmov0b3sby08"]
+
+[ext_resource type="Script" uid="uid://b8jspgp4ylifj" path="res://Scripts/checkpoint.gd" id="1_fdi15"]
+[ext_resource type="SpriteFrames" uid="uid://b47ohm78k07l5" path="res://Art/Sprites/checkpointAnimation.tres" id="2_fdi15"]
+[ext_resource type="AudioStream" uid="uid://c2fq1gg4v2ptp" path="res://Audio/SoundEffects/checkpointCleared.mp3" id="3_f4jfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vn6n"]
+size = Vector2(19, 26)
+
+[node name="Checkpoint" type="Area2D" node_paths=PackedStringArray("checkpointClear")]
+script = ExtResource("1_fdi15")
+checkpointClear = NodePath("AudioStreamPlayer2D")
+metadata/Role = "Environment"
+
+[node name="End_Point" type="Camera2D" parent="."]
+position = Vector2(953, -346)
+enabled = false
+zoom = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 3)
+shape = SubResource("RectangleShape2D_8vn6n")
+
+[node name="Checkpoint" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_fdi15")
+animation = &"open"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f4jfi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

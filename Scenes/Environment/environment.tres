@@ -1,0 +1,29 @@
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://btrmfhthnkyqh"]
+
+[ext_resource type="PackedScene" uid="uid://ctmov0b3sby08" path="res://Scenes/Environment/checkpoint.tscn" id="1_xoi7x"]
+[ext_resource type="PackedScene" uid="uid://bs0obvwp6q6qg" path="res://Scenes/Environment/enemy_gate_t7.tscn" id="2_evou4"]
+[ext_resource type="PackedScene" uid="uid://bw6sgcn6fyyji" path="res://Scenes/Environment/gate.tscn" id="2_f6l37"]
+[ext_resource type="PackedScene" uid="uid://j0mky0jn0qhm" path="res://Scenes/Environment/enemy_gate_t1.tscn" id="3_33xp3"]
+[ext_resource type="PackedScene" uid="uid://ba5rljjinwk6k" path="res://Scenes/Environment/springboard.tscn" id="3_hywkb"]
+[ext_resource type="PackedScene" uid="uid://dbp6ymgbirqot" path="res://Scenes/Environment/enemy_gate_t3.tscn" id="4_hdnkh"]
+[ext_resource type="PackedScene" uid="uid://540y2qgl06n0" path="res://Scenes/Environment/enemy_gate_t5.tscn" id="5_pxp30"]
+[ext_resource type="PackedScene" uid="uid://bskrb01g6o6ts" path="res://Scenes/Environment/enemy_gate_t4.tscn" id="6_pxp30"]
+[ext_resource type="PackedScene" uid="uid://ccl5b54qykn5r" path="res://Scenes/Environment/enemy_gate_t6.tscn" id="7_6i8wq"]
+[ext_resource type="PackedScene" uid="uid://ctmfwljmlh7q1" path="res://Scenes/Environment/enemy_gate_t8.tscn" id="8_rdi2k"]
+[ext_resource type="PackedScene" uid="uid://c0iebklxuqtnn" path="res://Scenes/Environment/enemy_gate_t2.tscn" id="9_rlwqt"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_33xp3"]
+scenes/1/scene = ExtResource("1_xoi7x")
+scenes/2/scene = ExtResource("2_f6l37")
+scenes/3/scene = ExtResource("3_33xp3")
+scenes/4/scene = ExtResource("4_hdnkh")
+scenes/5/scene = ExtResource("5_pxp30")
+scenes/6/scene = ExtResource("6_pxp30")
+scenes/7/scene = ExtResource("7_6i8wq")
+scenes/8/scene = ExtResource("8_rdi2k")
+scenes/9/scene = ExtResource("9_rlwqt")
+scenes/10/scene = ExtResource("2_evou4")
+scenes/11/scene = ExtResource("3_hywkb")
+
+[resource]
+sources/0 = SubResource("TileSetScenesCollectionSource_33xp3")

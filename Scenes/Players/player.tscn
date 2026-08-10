@@ -1,0 +1,202 @@
+[gd_scene load_steps=24 format=3 uid="uid://ckppy6qd6lowy"]
+
+[ext_resource type="Script" uid="uid://d3fdw8a5elyqv" path="res://Scripts/player_movement.gd" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dpwck7sbbq82o" path="res://Art/Sprites/Blurb/Box1Right.png" id="2_vgqql"]
+[ext_resource type="Texture2D" uid="uid://dgshxestsbja" path="res://Art/Particles/trail2.tres" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://2kykmcqj4sxh" path="res://Art/Sprites/Blurb/Box2Right.png" id="3_gymyn"]
+[ext_resource type="Material" uid="uid://drmy2mn053tlu" path="res://Art/Particles/explosion.tres" id="3_vgqql"]
+[ext_resource type="Texture2D" uid="uid://ca07g3tg73870" path="res://Art/Sprites/Blurb/Box3Right.png" id="4_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://45bigct4nma2" path="res://Art/Sprites/Blurb/Box4Left.png" id="5_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://coa6r5r4nihyu" path="res://Art/Sprites/Blurb/Box5Left.png" id="6_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://cx8jkl7da51gi" path="res://Art/Sprites/Blurb/Box1Left.png" id="7_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://dio75n8twh8ya" path="res://Art/Sprites/Blurb/Box2Left.png" id="8_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://b70hq636u8878" path="res://Art/Sprites/Blurb/Box3Left.png" id="9_qqcod"]
+[ext_resource type="Texture2D" uid="uid://bqt7b682knon1" path="res://Art/Sprites/Boblina/Boblina1Right.png" id="12_olqyp"]
+[ext_resource type="Texture2D" uid="uid://dc2d2qs8pa47p" path="res://Art/Sprites/Boblina/Boblina2Right.png" id="13_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://dtkujhqwp6v1l" path="res://Art/Sprites/Boblina/Boblina3Right.png" id="14_bi64h"]
+[ext_resource type="Texture2D" uid="uid://c6dwbmm1ggtc5" path="res://Art/Sprites/Boblina/Boblina4Right.png" id="15_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://dkhkmnqcgtomq" path="res://Art/Sprites/Boblina/Boblina5Right.png" id="16_p1odr"]
+[ext_resource type="Texture2D" uid="uid://m2atveaxibd2" path="res://Art/Sprites/Boblina/Boblina1Left.png" id="17_0gysh"]
+[ext_resource type="Texture2D" uid="uid://clqk3a8efxjly" path="res://Art/Sprites/Boblina/Boblina2Left.png" id="18_vfarp"]
+[ext_resource type="Texture2D" uid="uid://bn1jyap7yaryr" path="res://Art/Sprites/Boblina/Boblina3Left.png" id="19_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://c2lyqkq35krcy" path="res://Art/Sprites/Boblina/boblina4Left.png" id="20_83xs0"]
+[ext_resource type="Texture2D" uid="uid://dbturp64msmc8" path="res://Art/Sprites/Boblina/Boblina5Left.png" id="21_ypfnu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(16, 16)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cvnsp"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, -0.05, 0)
+spread = 23.855
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 98, 0)
+
+[node name="Player" type="Node2D"]
+
+[node name="Blurb" type="CharacterBody2D" parent="."]
+visible = false
+collision_mask = 5
+script = ExtResource("2_cvnsp")
+speed = 200
+size_5_right = ExtResource("2_vgqql")
+size_4_right = ExtResource("3_gymyn")
+size_3_right = ExtResource("4_pu2lt")
+size_2_right = ExtResource("5_ukyrk")
+size_1_right = ExtResource("6_7dp3o")
+size_5_left = ExtResource("7_h4iuc")
+size_4_left = ExtResource("8_fd4e3")
+size_3_left = ExtResource("9_qqcod")
+size_2_left = ExtResource("5_ukyrk")
+size_1_left = ExtResource("6_7dp3o")
+metadata/Role = "Player"
+metadata/canMove = true
+
+[node name="JumpParticles1" type="GPUParticles2D" parent="Blurb"]
+visible = false
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 8)
+emitting = false
+amount = 21
+texture = ExtResource("3_6t5aa")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("3_vgqql")
+
+[node name="JumpParticles2" type="GPUParticles2D" parent="Blurb"]
+visible = false
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 8)
+emitting = false
+amount = 21
+texture = ExtResource("3_6t5aa")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("3_vgqql")
+
+[node name="JumpParticles3" type="GPUParticles2D" parent="Blurb"]
+visible = false
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 8)
+emitting = false
+amount = 21
+texture = ExtResource("3_6t5aa")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("3_vgqql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blurb"]
+visible = false
+texture_filter = 1
+shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="character_sprite" type="Sprite2D" parent="Blurb"]
+visible = false
+texture_filter = 1
+texture = ExtResource("2_vgqql")
+
+[node name="SidewaysParticles" type="GPUParticles2D" parent="Blurb"]
+visible = false
+z_index = -3
+position = Vector2(-8, 8)
+emitting = false
+texture = ExtResource("3_6t5aa")
+lifetime = 0.6
+randomness = 0.31
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_cvnsp")
+
+[node name="Camera2D" type="Camera2D" parent="Blurb"]
+visible = false
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="Boblina" type="CharacterBody2D" parent="."]
+collision_mask = 5
+script = ExtResource("2_cvnsp")
+speed = 200
+size_5_right = ExtResource("12_olqyp")
+size_4_right = ExtResource("13_wpjfl")
+size_3_right = ExtResource("14_bi64h")
+size_2_right = ExtResource("15_2ijsl")
+size_1_right = ExtResource("16_p1odr")
+size_5_left = ExtResource("17_0gysh")
+size_4_left = ExtResource("18_vfarp")
+size_3_left = ExtResource("19_y6uwr")
+size_2_left = ExtResource("20_83xs0")
+size_1_left = ExtResource("21_ypfnu")
+metadata/Role = "Player"
+metadata/canMove = true
+
+[node name="JumpParticles1" type="GPUParticles2D" parent="Boblina"]
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 8)
+emitting = false
+amount = 21
+texture = ExtResource("3_6t5aa")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("3_vgqql")
+
+[node name="JumpParticles2" type="GPUParticles2D" parent="Boblina"]
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 8)
+emitting = false
+amount = 21
+texture = ExtResource("3_6t5aa")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("3_vgqql")
+
+[node name="JumpParticles3" type="GPUParticles2D" parent="Boblina"]
+z_index = -3
+z_as_relative = false
+position = Vector2(0, 8)
+emitting = false
+amount = 21
+texture = ExtResource("3_6t5aa")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource("3_vgqql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boblina"]
+texture_filter = 1
+shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="character_sprite" type="Sprite2D" parent="Boblina"]
+texture_filter = 1
+position = Vector2(0, -2)
+texture = ExtResource("12_olqyp")
+
+[node name="SidewaysParticles" type="GPUParticles2D" parent="Boblina"]
+z_index = -3
+position = Vector2(-8, 8)
+emitting = false
+texture = ExtResource("3_6t5aa")
+lifetime = 0.6
+randomness = 0.31
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_cvnsp")
+
+[node name="Camera2D" type="Camera2D" parent="Boblina"]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true

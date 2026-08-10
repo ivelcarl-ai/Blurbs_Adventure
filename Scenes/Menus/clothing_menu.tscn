@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://drk3ycp5tnbk"]
+
+[ext_resource type="Script" uid="uid://db6860u1exrjc" path="res://Scripts/main_settings.gd" id="1_nswlg"]
+[ext_resource type="Texture2D" uid="uid://dl2siere27ggm" path="res://Art/Menu/menuBackground.png" id="2_uxlg2"]
+[ext_resource type="Theme" uid="uid://cn5au1bybesnv" path="res://Art/Menu/text.tres" id="3_vhucv"]
+[ext_resource type="StyleBox" uid="uid://cbjj1g6pqldov" path="res://Art/Menu/blurbPressed.tres" id="4_vhucv"]
+[ext_resource type="StyleBox" uid="uid://bc4xlwg0o3lk4" path="res://Art/Menu/blurbNormaltres.tres" id="5_rqqk8"]
+[ext_resource type="StyleBox" uid="uid://bdehtwos1i508" path="res://Art/Menu/boblinaPressed.tres" id="6_vhucv"]
+[ext_resource type="StyleBox" uid="uid://doubf0rf3bsax" path="res://Art/Menu/boblinaNormal.tres" id="7_rqqk8"]
+[ext_resource type="StyleBox" uid="uid://dswbwoteqedsl" path="res://Art/Menu/backPressed.tres" id="8_vhucv"]
+[ext_resource type="StyleBox" uid="uid://cq2wk3dc8hc1g" path="res://Art/Menu/backNormal.tres" id="9_rqqk8"]
+[ext_resource type="AudioStream" uid="uid://c5ji4avawi222" path="res://Audio/Music/Lobby.wav" id="10_l7b6w"]
+
+[node name="ClothingMenu" type="Control" node_paths=PackedStringArray("homeButton", "blurbButton", "boblinaButton", "camera", "audioPlayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nswlg")
+homeButton = NodePath("MarginContainer/NinePatchRect/VBoxContainer/Home")
+blurbButton = NodePath("MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/Blurb")
+boblinaButton = NodePath("MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/Boblina")
+camera = NodePath("Camera2D")
+audioPlayer = NodePath("AudioStreamPlayer")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+texture = ExtResource("2_uxlg2")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -150.0
+offset_right = 286.5
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.8, 1.8)
+pivot_offset = Vector2(286, 150)
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("3_vhucv")
+theme_override_font_sizes/font_size = 55
+text = "Select Your Character"
+horizontal_alignment = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Blurb" type="Button" parent="MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = ExtResource("4_vhucv")
+theme_override_styles/pressed = ExtResource("4_vhucv")
+theme_override_styles/normal = ExtResource("5_rqqk8")
+toggle_mode = true
+
+[node name="Boblina" type="Button" parent="MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = ExtResource("6_vhucv")
+theme_override_styles/pressed = ExtResource("6_vhucv")
+theme_override_styles/normal = ExtResource("7_rqqk8")
+toggle_mode = true
+
+[node name="Home" type="Button" parent="MarginContainer/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = ExtResource("8_vhucv")
+theme_override_styles/pressed = ExtResource("8_vhucv")
+theme_override_styles/normal = ExtResource("9_rqqk8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_l7b6w")
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/Blurb" to="." method="_on_blurb_pressed"]
+[connection signal="pressed" from="MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/Boblina" to="." method="_on_boblina_pressed"]
+[connection signal="pressed" from="MarginContainer/NinePatchRect/VBoxContainer/Home" to="." method="_on_home_pressed"]

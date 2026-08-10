@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi8yukraeesrv"]
+
+[ext_resource type="Script" uid="uid://d2k5580etfq4n" path="res://Scripts/key_display.gd" id="1_2kcm5"]
+[ext_resource type="Texture2D" uid="uid://cxfvc7r23mpll" path="res://Art/Sprites/key.png" id="2_xhl8g"]
+
+[node name="KeyDisplay" type="CanvasLayer"]
+script = ExtResource("1_2kcm5")
+metadata/Role = "HUD"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 100.0
+color = Color(0.560784, 0.827451, 1, 0.635294)
+
+[node name="slot1" type="Sprite2D" parent="Control/ColorRect"]
+visible = false
+position = Vector2(150, 50)
+rotation = 1.5708
+scale = Vector2(4, 4)
+texture = ExtResource("2_xhl8g")
+
+[node name="slot2" type="Sprite2D" parent="Control/ColorRect"]
+visible = false
+position = Vector2(100, 50)
+rotation = 1.5708
+scale = Vector2(4, 4)
+texture = ExtResource("2_xhl8g")
+
+[node name="slot3" type="Sprite2D" parent="Control/ColorRect"]
+visible = false
+position = Vector2(50, 50)
+rotation = 1.5708
+scale = Vector2(4, 4)
+texture = ExtResource("2_xhl8g")
